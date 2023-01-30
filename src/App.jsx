@@ -10,8 +10,7 @@ function App() {
     ])
 	
     return (
-        <div> 
-            <p>awwdkjjnojnaeroin</p>
+        <div>
             <ProductTable cars={cars} setCars={setCars} ></ProductTable>
         </div>
     )

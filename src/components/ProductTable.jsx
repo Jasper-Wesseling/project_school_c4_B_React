@@ -1,36 +1,34 @@
 import React, { useState } from 'react'
+import '../assets/ProductTable.css'
 
 const ProductTable = ({cars, setCars}) => {
 	const [knop, setKnop] = useState(false)
 
+	// sort for numbers
 	const sortNum = (soortnaam) => {
 		if (knop) {
-			console.log(soortnaam)
-			const numAscending = [...cars].sort((a, b) => a.soortnaam - b.soortnaam)
+			const numAscending = [...cars].sort((a, b) => a[soortnaam] - b[soortnaam])
 			setCars(numAscending)
 			setKnop(!knop)
 		} else {
-			const numDescending = [...cars].sort((a, b) => b.soortnaam - a.soortnaam);
+			const numDescending = [...cars].sort((a, b) => b[soortnaam] - a[soortnaam]);
 			setCars(numDescending)
 			setKnop(!knop)
 		}	
 	}
 
-	//sort by Numeric property ASCENDING (1 - 100)
-	const numAscending = [...cars].sort((a, b) => a.id - b.id); 
-  
-	//sort by Numeric property DESCENDING (100 - 1)
-	const numDescending = [...cars].sort((a, b) => b.id - a.id); 
-  
-	//sort by String property ASCENDING (A - Z)
-	const strAscending = [...cars].sort((a, b) =>
-	  a.merk > b.merk ? 1 : -1,
-	); 
-  
-	//sort by String property DESCENDING (Z - A)
-	const strDescending = [...cars].sort((a, b) =>
-	  a.merk > b.merk ? -1 : 1,
-	);
+	// sort for the strings
+	const sortStr = (soortnaam) => {
+		if (knop) {
+			const strAscending = [...cars].sort((a, b) => a[soortnaam] > b[soortnaam] ? 1 : -1, ); 
+			setCars(strAscending)
+			setKnop(!knop)
+		} else {
+			const strDescending = [...cars].sort((a, b) => a[soortnaam] > b[soortnaam] ? -1 : 1, );
+			setCars(strDescending)
+			setKnop(!knop)
+		}	
+	}
 
 	return (
 		<table>
@@ -38,20 +36,20 @@ const ProductTable = ({cars, setCars}) => {
 			<thead>
 				<tr>
 					<th>
-						<button type="button" onClick={() => sortNum('id')} >kenteken</button>
+						<button type="button" onClick={() => sortStr('kenteken')} >kenteken</button>
 					</th>
-				<th>
-					<button type="button" >kleur</button>
-				</th>
-				<th>
-					<button type="button" >merk</button>
-				</th>
-				<th>
-					<button type="button" >aantaldeuren</button>
-				</th>
-				<th>
-					<button type="button" >prijs</button>
-				</th>
+					<th>
+						<button type="button" onClick={() => sortStr('kleur')}>kleur</button>
+					</th>
+					<th>
+						<button type="button" onClick={() => sortStr('merk')} >merk</button>
+					</th>
+					<th>
+						<button type="button" onClick={() => sortNum('aantaldeuren')} >aantaldeuren</button>
+					</th>
+					<th>
+						<button type="button" onClick={() => sortNum('prijs')} >prijs</button>
+					</th>
 				</tr>
 			</thead>
 			<tbody>
