@@ -7,6 +7,7 @@ function App() {
         { id: 2, kenteken: '23awd', kleur: 'groen', merk: 'Toyota', aantaldeuren: '3', prijs: '10'},
         { id: 3, kenteken: 'awdawd', kleur: 'geel', merk: 'Toyota', aantaldeuren: '12', prijs: '100'},
         { id: 4, kenteken: '2u3ir', kleur: 'grijs', merk: 'Porsche', aantaldeuren: '3', prijs: '268000'},
+        { id: 5, kenteken: 'awd234', kleur: 'zwart', merk: 'Toyota', aantaldeuren: '5', prijs: '20000'},
     ])
 	
     return (
