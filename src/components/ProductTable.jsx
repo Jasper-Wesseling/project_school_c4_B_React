@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import '../assets/ProductTable.css'
+import '../css/ProductTable.css'
 
 const ProductTable = ({cars, setCars}) => {
 	const [knop, setKnop] = useState(false)
